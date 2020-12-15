@@ -1,3 +1,4 @@
+set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'arzg/vim-plan9'
 Plug 'fatih/vim-go', { 'tag': '*' }
@@ -7,8 +8,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'mattsacks/vim-symbol'
 Plug 'mg979/vim-visual-multi'
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ollykel/v-vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
