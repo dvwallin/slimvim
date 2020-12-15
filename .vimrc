@@ -26,7 +26,6 @@ map <leader>s :w<CR>
 map <leader>w :SymbolList<CR>
 map <leader>q :NERDTreeToggle<CR>
 map <leader>r :source /home/dsw/.vimrc<CR>
-imap ee <Esc>
 let g:lightline = {
 			\     'active': {
 			\         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
