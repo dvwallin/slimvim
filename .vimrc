@@ -11,7 +11,6 @@ Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'ollykel/v-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'sheerun/vim-polyglot'
-Plug 'zah/nim.vim'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -35,14 +34,3 @@ set laststatus=2
 set backupdir=~/.vim/backup_files//
 set directory=~/.vim/swap_files//
 set undodir=~/.vim/undo_files//
-fun! JumpToDef()
-	if exists("*GotoDefinition_" . &filetype)
-		call GotoDefinition_{&filetype}()
-	else
-		exe "norm! \<C-]>"
-	endif
-endf
-
-" Jump to tag
-nn <M-g> :call JumpToDef()<cr>
-ino <M-g> <esc>:call JumpToDef()<cr>i
