@@ -11,6 +11,7 @@ Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'ollykel/v-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -24,12 +25,12 @@ set termguicolors
 colorscheme plan9
 map <leader>f :FZF<CR>
 map <leader>s :w<CR>
+map <leader>g :Goyo<CR>
 map <leader>w :SymbolList<CR>
 map <leader>q :NERDTreeToggle<CR>
 map <leader>r :source $HOME/.vimrc<CR>
-map <leader>44 :set expandtab ts=4 sw=4 ai<CR>
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 set laststatus=2
 set backupdir=~/.vim/backup_files//
 set directory=~/.vim/swap_files//
