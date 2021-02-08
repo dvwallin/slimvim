@@ -5,13 +5,13 @@ Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'mattsacks/vim-symbol'
 Plug 'mg979/vim-visual-multi'
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-Plug 'ollykel/v-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
+Plug 'preservim/nerdcommenter'
+Plug 'ackyshake/VimCompletesMe'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -23,6 +23,7 @@ set mouse=a
 syntax on
 set termguicolors
 colorscheme plan9
+filetype plugin on
 map <leader>f :FZF<CR>
 map <leader>s :w<CR>
 map <leader>g :Goyo<CR>
