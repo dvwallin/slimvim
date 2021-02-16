@@ -1,6 +1,7 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
 Plug 'arzg/vim-plan9'
+Plug 'stillwwater/vim-nebula'
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
@@ -22,7 +23,8 @@ set relativenumber
 set mouse=a
 syntax on
 set termguicolors
-colorscheme plan9
+set background=light
+colorscheme nebula
 filetype plugin on
 map <leader>f :FZF<CR>
 map <leader>s :w<CR>
@@ -37,3 +39,11 @@ set backupdir=~/.vim/backup_files//
 set directory=~/.vim/swap_files//
 set undodir=~/.vim/undo_files//
 set cc=80
+fun! ToggleCC()
+  if &cc == ''
+    set cc=80
+  else
+    set cc=
+  endif
+endfun
+nnoremap <leader>l :call ToggleCC()<CR>
