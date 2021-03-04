@@ -13,6 +13,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'ackyshake/VimCompletesMe'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'MattesGroeger/vim-bookmarks'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -47,3 +50,8 @@ fun! ToggleCC()
   endif
 endfun
 nnoremap <leader>l :call ToggleCC()<CR>
+let g:php_cs_fixer_rules = "@PSR2"
+let g:php_cs_fixer_php_path = "php8"
+nnoremap <silent><leader>pd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
+let g:bookmark_sign = '😜'
