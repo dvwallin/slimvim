@@ -16,6 +16,8 @@ Plug 'ackyshake/VimCompletesMe'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'MattesGroeger/vim-bookmarks'
+Plug 'dense-analysis/ale'
+Plug 'maximbaz/lightline-ale'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -55,3 +57,5 @@ let g:php_cs_fixer_php_path = "php8"
 nnoremap <silent><leader>pd :call PhpCsFixerFixDirectory()<CR>
 nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 let g:bookmark_sign = '😜'
+let b:ale_linters = ['php', 'phpcs']
+let b:ale_fixers = ['phpcbf']
