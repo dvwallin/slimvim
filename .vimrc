@@ -18,6 +18,8 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'dense-analysis/ale'
 Plug 'maximbaz/lightline-ale'
+Plug 'airblade/vim-gitgutter'
+Plug 'preservim/tagbar'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -34,7 +36,7 @@ filetype plugin on
 map <leader>f :FZF<CR>
 map <leader>s :w<CR>
 map <leader>g :Goyo<CR>
-map <leader>w :SymbolList<CR>
+nmap <leader>w :TagbarToggle<CR>
 map <leader>q :NERDTreeToggle<CR>
 map <leader>r :source $HOME/.vimrc<CR>
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
