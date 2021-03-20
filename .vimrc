@@ -20,6 +20,8 @@ Plug 'dense-analysis/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/tagbar'
+Plug 'jremmen/vim-ripgrep'
+Plug 'pechorin/any-jump.vim'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
