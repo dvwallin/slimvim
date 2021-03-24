@@ -26,6 +26,8 @@ Plug 'alvan/vim-php-manual'
 Plug 'brooth/far.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'matze/vim-move'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -67,3 +69,6 @@ nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 let g:bookmark_sign = '😜'
 let b:ale_linters = ['php', 'phpcs']
 let b:ale_fixers = ['phpcbf']
+let g:dbs = {
+            \  'dev': 'mysql://toor:tomte@localhost/klaravik'
+            \ }
