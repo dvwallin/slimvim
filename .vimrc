@@ -22,8 +22,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'preservim/tagbar'
 Plug 'jremmen/vim-ripgrep'
 Plug 'pechorin/any-jump.vim'
-Plug 'wellle/context.vim'
 Plug 'alvan/vim-php-manual'
+Plug 'brooth/far.vim'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'matze/vim-move'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
