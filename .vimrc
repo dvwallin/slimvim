@@ -28,6 +28,9 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'matze/vim-move'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'c9s/helper.vim'
+Plug 'c9s/treemenu.vim'
+Plug 'c9s/hypergit.vim'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
