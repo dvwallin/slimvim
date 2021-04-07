@@ -31,6 +31,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'ojroques/vim-scrollstatus'
+Plug 'nicwest/vim-http'
+Plug 'josa42/vim-lightline-coc'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -49,10 +52,13 @@ map <leader>fg <cmd>Telescope live_grep<cr>
 map <leader>fb <cmd>Telescope buffers<cr>
 map <leader>fh <cmd>Telescope help_tags<cr>
 map <leader>g :Goyo<CR>
+map <leader>ht :Http<CR>
+map <leader>id gg=G<CR>
 nmap <leader>tb :TagbarToggle<CR>
 map <leader>q :NERDTreeToggle<CR>
 map <leader>r :source $HOME/.vimrc<CR>
-nmap <leader>mt <plug>(MergetoolToggle)
+inoremap <nowait> <esc> <esc>
+inoremap jk <esc>
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 set laststatus=2
@@ -81,3 +87,11 @@ let g:dbs = {
             \  'dsw': 'mysql://toor:tomte@localhost/klaravik_20210401_dsw'
             \ }
 hi CursorLine gui=underline cterm=underline ctermfg=None guifg=None guibg=None
+let g:lightline = {
+            \ 'active': {
+            \   'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype', 'charvaluehex']],
+            \   'left': [[  'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ], [ 'coc_status'  ]]
+            \ },
+            \ 'component_function': {'percent': 'ScrollStatus'},
+            \ }
+hi Search guibg=peru guifg=wheat
