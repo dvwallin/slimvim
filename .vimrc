@@ -31,10 +31,11 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'c9s/helper.vim'
 Plug 'c9s/treemenu.vim'
 Plug 'c9s/hypergit.vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
-	set t_Co=256
+    set t_Co=256
 endif
 set number
 set relativenumber
@@ -58,11 +59,11 @@ set directory=~/.vim/swap_files//
 set undodir=~/.vim/undo_files//
 set cc=80
 fun! ToggleCC()
-  if &cc == ''
-    set cc=80
-  else
-    set cc=
-  endif
+    if &cc == ''
+        set cc=80
+    else
+        set cc=
+    endif
 endfun
 nnoremap <leader>l :call ToggleCC()<CR>
 let g:php_cs_fixer_rules = "@PSR2"
@@ -73,5 +74,8 @@ let g:bookmark_sign = '😜'
 let b:ale_linters = ['php', 'phpcs']
 let b:ale_fixers = ['phpcbf']
 let g:dbs = {
-            \  'dev': 'mysql://toor:tomte@localhost/klaravik'
+            \  'dev': 'mysql://toor:tomte@localhost/klaravik',
+            \  'new': 'mysql://toor:tomte@localhost/klaravik_20210325_ab',
+            \  'dsw': 'mysql://toor:tomte@localhost/klaravik_20210401_dsw'
             \ }
+hi CursorLine gui=underline cterm=underline ctermfg=None guifg=None guibg=None
