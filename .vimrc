@@ -5,26 +5,21 @@ Plug 'stillwwater/vim-nebula'
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'mg979/vim-visual-multi'
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/goyo.vim'
 Plug 'preservim/nerdcommenter'
-Plug 'ackyshake/VimCompletesMe'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'dense-analysis/ale'
 Plug 'maximbaz/lightline-ale'
 Plug 'airblade/vim-gitgutter'
-Plug 'preservim/tagbar'
 Plug 'jremmen/vim-ripgrep'
 Plug 'pechorin/any-jump.vim'
 Plug 'alvan/vim-php-manual'
 Plug 'brooth/far.vim'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'matze/vim-move'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
@@ -32,6 +27,10 @@ Plug 'c9s/helper.vim'
 Plug 'c9s/treemenu.vim'
 Plug 'c9s/hypergit.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -44,13 +43,16 @@ syntax on
 set termguicolors
 set background=light
 colorscheme nebula
-filetype plugin on
-map <leader>f :FZF<CR>
-map <leader>s :w<CR>
+filetype plugin indent on
+map <leader>ff <cmd>Telescope find_files<cr>
+map <leader>fg <cmd>Telescope live_grep<cr>
+map <leader>fb <cmd>Telescope buffers<cr>
+map <leader>fh <cmd>Telescope help_tags<cr>
 map <leader>g :Goyo<CR>
-nmap <leader>w :TagbarToggle<CR>
+nmap <leader>tb :TagbarToggle<CR>
 map <leader>q :NERDTreeToggle<CR>
 map <leader>r :source $HOME/.vimrc<CR>
+nmap <leader>mt <plug>(MergetoolToggle)
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
 set laststatus=2
@@ -65,7 +67,7 @@ fun! ToggleCC()
         set cc=
     endif
 endfun
-nnoremap <leader>l :call ToggleCC()<CR>
+nnoremap <leader>cc :call ToggleCC()<CR>
 let g:php_cs_fixer_rules = "@PSR2"
 let g:php_cs_fixer_php_path = "php8"
 nnoremap <silent><leader>pd :call PhpCsFixerFixDirectory()<CR>
