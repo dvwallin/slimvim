@@ -79,11 +79,6 @@ nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 let g:bookmark_sign = '😜'
 let b:ale_linters = ['php', 'phpcs']
 let b:ale_fixers = ['phpcbf']
-let g:dbs = {
-            \  'dev': 'mysql://toor:tomte@localhost/klaravik',
-            \  'new': 'mysql://toor:tomte@localhost/klaravik_20210325_ab',
-            \  'dsw': 'mysql://toor:tomte@localhost/klaravik_20210401_dsw'
-            \ }
 hi CursorLine gui=underline cterm=underline ctermfg=None guifg=None guibg=None
 let g:lightline = {
             \ 'active': {
@@ -93,3 +88,7 @@ let g:lightline = {
             \ 'component_function': {'percent': 'ScrollStatus'},
             \ }
 hi Search guibg=peru guifg=wheat
+let $SECFILE = $HOME . "/.secvimrc"
+if filereadable($SECFILE)
+    source $SECFILE
+endif
