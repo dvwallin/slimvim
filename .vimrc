@@ -32,7 +32,6 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'ojroques/vim-scrollstatus'
-Plug 'nicwest/vim-http'
 Plug 'josa42/vim-lightline-coc'
 call plug#end()
 let mapleader = ","
@@ -52,7 +51,6 @@ map <leader>fg <cmd>Telescope live_grep<cr>
 map <leader>fb <cmd>Telescope buffers<cr>
 map <leader>fh <cmd>Telescope help_tags<cr>
 map <leader>g :Goyo<CR>
-map <leader>ht :Http<CR>
 map <leader>id gg=G<CR>
 nmap <leader>tb :TagbarToggle<CR>
 map <leader>q :NERDTreeToggle<CR>
