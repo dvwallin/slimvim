@@ -52,7 +52,6 @@ map <leader>fb <cmd>Telescope buffers<cr>
 map <leader>fh <cmd>Telescope help_tags<cr>
 map <leader>g :Goyo<CR>
 map <leader>id gg=G<CR>
-nmap <leader>tb :TagbarToggle<CR>
 map <leader>q :NERDTreeToggle<CR>
 map <leader>r :source $HOME/.vimrc<CR>
 nmap <leader>x :exec '!'.getline('.')<CR>
