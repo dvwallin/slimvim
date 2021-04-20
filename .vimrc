@@ -50,6 +50,8 @@ map <leader>ff <cmd>Telescope find_files<cr>
 map <leader>fg <cmd>Telescope live_grep<cr>
 map <leader>fb <cmd>Telescope buffers<cr>
 map <leader>fh <cmd>Telescope help_tags<cr>
+map <leader>yw yiw
+map <leader>v viw
 map <leader>g :Goyo<CR>
 map <leader>id gg=G<CR>
 map <leader>q :NERDTreeToggle<CR>
