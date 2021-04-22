@@ -34,6 +34,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'ojroques/vim-scrollstatus'
 Plug 'nicwest/vim-http'
 Plug 'josa42/vim-lightline-coc'
+Plug 'ollykel/v-vim'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
