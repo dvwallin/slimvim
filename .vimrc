@@ -32,7 +32,6 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'ojroques/vim-scrollstatus'
-Plug 'nicwest/vim-http'
 Plug 'josa42/vim-lightline-coc'
 Plug 'ollykel/v-vim'
 call plug#end()
@@ -52,12 +51,13 @@ map <leader>ff <cmd>Telescope find_files<cr>
 map <leader>fg <cmd>Telescope live_grep<cr>
 map <leader>fb <cmd>Telescope buffers<cr>
 map <leader>fh <cmd>Telescope help_tags<cr>
+map <leader>yw yiw
+map <leader>v viw
 map <leader>g :Goyo<CR>
-map <leader>ht :Http<CR>
 map <leader>id gg=G<CR>
-nmap <leader>tb :TagbarToggle<CR>
 map <leader>q :NERDTreeToggle<CR>
 map <leader>r :source $HOME/.vimrc<CR>
+nmap <leader>x :exec '!'.getline('.')<CR>
 inoremap <nowait> <esc> <esc>
 inoremap jk <esc>
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
@@ -82,11 +82,6 @@ nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 let g:bookmark_sign = '😜'
 let b:ale_linters = ['php', 'phpcs']
 let b:ale_fixers = ['phpcbf']
-let g:dbs = {
-            \  'dev': 'mysql://toor:tomte@localhost/klaravik',
-            \  'new': 'mysql://toor:tomte@localhost/klaravik_20210325_ab',
-            \  'dsw': 'mysql://toor:tomte@localhost/klaravik_20210401_dsw'
-            \ }
 hi CursorLine gui=underline cterm=underline ctermfg=None guifg=None guibg=None
 let g:lightline = {
             \ 'active': {
@@ -96,3 +91,7 @@ let g:lightline = {
             \ 'component_function': {'percent': 'ScrollStatus'},
             \ }
 hi Search guibg=peru guifg=wheat
+let $SECFILE = $HOME . "/.secvimrc"
+if filereadable($SECFILE)
+    source $SECFILE
+endif
