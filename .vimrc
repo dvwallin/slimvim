@@ -1,6 +1,5 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
-Plug 'arzg/vim-plan9'
 Plug 'stillwwater/vim-nebula'
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'godlygeek/tabular'
@@ -34,6 +33,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'ojroques/vim-scrollstatus'
 Plug 'josa42/vim-lightline-coc'
 Plug 'ollykel/v-vim'
+Plug 'vim-crystal/vim-crystal'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -79,6 +79,7 @@ let g:php_cs_fixer_rules = "@PSR2"
 let g:php_cs_fixer_php_path = "php8"
 nnoremap <silent><leader>pd :call PhpCsFixerFixDirectory()<CR>
 nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
+let g:crystal_auto_format = 1
 let g:bookmark_sign = '😜'
 let b:ale_linters = ['php', 'phpcs']
 let b:ale_fixers = ['phpcbf']
