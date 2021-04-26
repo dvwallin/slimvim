@@ -1,6 +1,5 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
-Plug 'stillwwater/vim-nebula'
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
@@ -34,6 +33,7 @@ Plug 'ojroques/vim-scrollstatus'
 Plug 'josa42/vim-lightline-coc'
 Plug 'ollykel/v-vim'
 Plug 'vim-crystal/vim-crystal'
+Plug 'kkga/vim-envy'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -45,7 +45,7 @@ set mouse=a
 syntax on
 set termguicolors
 set background=light
-colorscheme nebula
+colorscheme envy
 filetype plugin indent on
 map <leader>ff <cmd>Telescope find_files<cr>
 map <leader>fg <cmd>Telescope live_grep<cr>
