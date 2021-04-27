@@ -58,6 +58,7 @@ map <leader>id gg=G<CR>
 map <leader>q :NERDTreeToggle<CR>
 map <leader>r :source $HOME/.vimrc<CR>
 nmap <leader>x :exec '!'.getline('.')<CR>
+map <leader>c :vert bo new $HOME/.cmds<CR>
 inoremap <nowait> <esc> <esc>
 inoremap jk <esc>
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
