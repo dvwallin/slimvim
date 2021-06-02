@@ -38,6 +38,8 @@ Plug 'iqxd/vim-mine-sweeping'
 Plug 'beanworks/vim-phpfmt'
 Plug 'preservim/tagbar'
 Plug 'vim-php/tagbar-phpctags.vim'
+Plug 'scrooloose/syntastic'
+Plug 'sumpygump/php-documentor-vim'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -66,6 +68,9 @@ map <leader>c :vert bo new $HOME/.cmds<CR>
 nmap <leader>w :TagbarToggle<CR>
 inoremap <nowait> <esc> <esc>
 inoremap jk <esc>
+au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php nnoremap <buffer> <leader>d :call PhpDoc()<CR>
+let g:syntastic_php_checkers = ['php']
 let g:tagbar_phpctags_memory_limit = '512M'
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
 set autoindent expandtab tabstop=4 shiftwidth=4 smarttab
@@ -90,7 +95,10 @@ nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 let g:crystal_auto_format = 1
 let g:bookmark_sign = '😜'
 let b:ale_linters = ['php', 'phpcs']
-let b:ale_fixers = ['phpcbf']
+let g:ale_php_phpcs_executable='phpcs'
+let g:ale_php_php_cs_fixer_executable='php-cs-fixer'
+let g:ale_fixers = {'php': ['php-cs-fixer']}
+let g:pdv_cfg_Author = 'David Satime Wallin <david.wallin@klaravik.se>'
 hi CursorLine gui=underline cterm=underline ctermfg=None guifg=None guibg=None
 let g:lightline = {
             \ 'active': {
