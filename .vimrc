@@ -64,7 +64,7 @@ map <leader>c :vert bo new $HOME/.cmds<CR>
 inoremap <nowait> <esc> <esc>
 inoremap jk <esc>
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
-set autoindent noexpandtab tabstop=4 shiftwidth=4 smarttab
+set autoindent expandtab tabstop=4 shiftwidth=4 smarttab
 set laststatus=2
 set backupdir=~/.vim/backup_files//
 set directory=~/.vim/swap_files//
