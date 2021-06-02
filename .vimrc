@@ -35,6 +35,7 @@ Plug 'ollykel/v-vim'
 Plug 'vim-crystal/vim-crystal'
 Plug 'kkga/vim-envy'
 Plug 'iqxd/vim-mine-sweeping'
+Plug 'beanworks/vim-phpfmt'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -63,7 +64,7 @@ map <leader>c :vert bo new $HOME/.cmds<CR>
 inoremap <nowait> <esc> <esc>
 inoremap jk <esc>
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
+set autoindent noexpandtab tabstop=4 shiftwidth=4 smarttab
 set laststatus=2
 set backupdir=~/.vim/backup_files//
 set directory=~/.vim/swap_files//
@@ -79,6 +80,7 @@ endfun
 nnoremap <leader>cc :call ToggleCC()<CR>
 let g:php_cs_fixer_rules = "@PSR2"
 let g:php_cs_fixer_php_path = "php8"
+let g:phpfmt_standard = 'PSR2'
 nnoremap <silent><leader>pd :call PhpCsFixerFixDirectory()<CR>
 nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 let g:crystal_auto_format = 1
