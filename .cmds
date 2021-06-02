@@ -4,3 +4,5 @@
 npm run js-build
 
 
+-- reload apache2 gracefully
+apachectl -k graceful

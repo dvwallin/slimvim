@@ -34,6 +34,7 @@ Plug 'josa42/vim-lightline-coc'
 Plug 'ollykel/v-vim'
 Plug 'vim-crystal/vim-crystal'
 Plug 'kkga/vim-envy'
+Plug 'iqxd/vim-mine-sweeping'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -91,6 +92,7 @@ let g:lightline = {
             \   'left': [[  'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ], [ 'coc_status'  ]]
             \ },
             \ 'component_function': {'percent': 'ScrollStatus'},
+            \ 'colorscheme': 'one',
             \ }
 hi Search guibg=peru guifg=wheat
 let $SECFILE = $HOME . "/.secvimrc"
