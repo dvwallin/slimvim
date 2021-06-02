@@ -36,6 +36,8 @@ Plug 'vim-crystal/vim-crystal'
 Plug 'kkga/vim-envy'
 Plug 'iqxd/vim-mine-sweeping'
 Plug 'beanworks/vim-phpfmt'
+Plug 'preservim/tagbar'
+Plug 'vim-php/tagbar-phpctags.vim'
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -61,8 +63,10 @@ map <leader>q :NERDTreeToggle<CR>
 map <leader>r :source $HOME/.vimrc<CR>
 nmap <leader>x :exec '!'.getline('.')<CR>
 map <leader>c :vert bo new $HOME/.cmds<CR>
+nmap <leader>w :TagbarToggle<CR>
 inoremap <nowait> <esc> <esc>
 inoremap jk <esc>
+let g:tagbar_phpctags_memory_limit = '512M'
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
 set autoindent expandtab tabstop=4 shiftwidth=4 smarttab
 set laststatus=2
