@@ -40,6 +40,13 @@ Plug 'preservim/tagbar'
 Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'scrooloose/syntastic'
 Plug 'sumpygump/php-documentor-vim'
+Plug 'WolfgangMehner/bash-support'
+Plug 'easymotion/vim-easymotion'
+if has('nvim') || has('patch-8.0.902')
+    Plug 'mhinz/vim-signify'
+else
+    Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -66,10 +73,12 @@ map <leader>r :source $HOME/.vimrc<CR>
 nmap <leader>x :exec '!'.getline('.')<CR>
 map <leader>c :vert bo new $HOME/.cmds<CR>
 nmap <leader>w :TagbarToggle<CR>
+map <Leader> <Plug>(easymotion-prefix)
 inoremap <nowait> <esc> <esc>
 inoremap jk <esc>
 au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>d :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php vnoremap <buffer> <leader>p :call PhpDocRange()<CR>
 let g:syntastic_php_checkers = ['php']
 let g:tagbar_phpctags_memory_limit = '512M'
 let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
@@ -99,6 +108,7 @@ let g:ale_php_phpcs_executable='phpcs'
 let g:ale_php_php_cs_fixer_executable='php-cs-fixer'
 let g:ale_fixers = {'php': ['php-cs-fixer']}
 let g:pdv_cfg_Author = 'David Satime Wallin <david.wallin@klaravik.se>'
+let g:pdv_cfg_ClassTags = ["author"]
 hi CursorLine gui=underline cterm=underline ctermfg=None guifg=None guibg=None
 let g:lightline = {
             \ 'active': {
