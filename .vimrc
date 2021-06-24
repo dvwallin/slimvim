@@ -43,7 +43,6 @@ Plug 'sumpygump/php-documentor-vim'
 Plug 'WolfgangMehner/bash-support'
 Plug 'easymotion/vim-easymotion'
 Plug 'justincampbell/vim-eighties'
-Plug 'wfxr/minimap.vim'
 Plug 'jmckiern/vim-venter'
 if has('nvim') || has('patch-8.0.902')
     Plug 'mhinz/vim-signify'
@@ -130,6 +129,3 @@ let $SECFILE = $HOME . "/.secvimrc"
 if filereadable($SECFILE)
     source $SECFILE
 endif
-let g:minimap_width = 10
-let g:minimap_auto_start = 1
-let g:minimap_auto_start_win_enter = 1
