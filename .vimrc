@@ -42,6 +42,9 @@ Plug 'scrooloose/syntastic'
 Plug 'sumpygump/php-documentor-vim'
 Plug 'WolfgangMehner/bash-support'
 Plug 'easymotion/vim-easymotion'
+Plug 'justincampbell/vim-eighties'
+Plug 'wfxr/minimap.vim'
+Plug 'jmckiern/vim-venter'
 if has('nvim') || has('patch-8.0.902')
     Plug 'mhinz/vim-signify'
 else
@@ -65,7 +68,8 @@ map <leader>fg <cmd>Telescope live_grep<cr>
 map <leader>fb <cmd>Telescope buffers<cr>
 map <leader>fh <cmd>Telescope help_tags<cr>
 map <leader>yw yiw
-map <leader>v viw
+map <leader>y viw
+map <leader>v :VenterToggle<CR>
 map <leader>g :Goyo<CR>
 map <leader>id gg=G<CR>
 map <leader>q :NERDTreeToggle<CR>
@@ -95,6 +99,9 @@ fun! ToggleCC()
         set cc=
     endif
 endfun
+let g:venter_width = &columns/8
+let g:eighties_enabled = 1
+let g:eighties_minimum_width = 100
 nnoremap <leader>cc :call ToggleCC()<CR>
 let g:php_cs_fixer_rules = "@PSR2"
 let g:php_cs_fixer_php_path = "php8"
@@ -123,3 +130,6 @@ let $SECFILE = $HOME . "/.secvimrc"
 if filereadable($SECFILE)
     source $SECFILE
 endif
+let g:minimap_width = 10
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
