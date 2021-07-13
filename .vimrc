@@ -1,5 +1,30 @@
+" Copyright © 2021 <David Satime Wallin david@dwall.in>
+"
+" Permission is hereby granted, free of charge, to any person obtaining a copy
+" of this software and associated documentation files (the “Software”), to deal
+" in the Software without restriction, including without limitation the rights
+" to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+" copies of the Software, and to permit persons to whom the Software is
+" furnished to do so, subject to the following conditions:
+"
+" The above copyright notice and this permission notice shall be included in
+" all copies or substantial portions of the Software.
+"
+" THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+" IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+" FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+" AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+" LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+" FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+" IN THE SOFTWARE.
+
+" ----------------------------------------------------------------------------
+
 set nocompatible
 call plug#begin('~/.vim/plugged')
+
+
+" LIST OF PLUGINS
 Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
@@ -40,10 +65,14 @@ Plug 'preservim/tagbar'
 Plug 'vim-php/tagbar-phpctags.vim'
 Plug 'scrooloose/syntastic'
 Plug 'sumpygump/php-documentor-vim'
+Plug 'rhysd/vim-clang-format'
+Plug 'kana/vim-operator-user'
+Plug 'Shougo/vimproc.vim'
+Plug 'robertmeta/nofrils'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'WolfgangMehner/bash-support'
 Plug 'easymotion/vim-easymotion'
 Plug 'justincampbell/vim-eighties'
-Plug 'jmckiern/vim-venter'
 if has('nvim') || has('patch-8.0.902')
     Plug 'mhinz/vim-signify'
 else
@@ -54,14 +83,38 @@ let mapleader = ","
 if !has('gui_running')
     set t_Co=256
 endif
+
+
+" NUMBER CONFIG
 set number
 set relativenumber
 set mouse=a
+
+
+" COLORS AND SYNTAX CONFIG
 syntax on
+set cc=80
 set termguicolors
-set background=light
-colorscheme envy
+colo nofrils-acme
+let g:nofrils_heavylinenumbers=0
+let g:nofrils_strbackgrounds=0
+let g:nofrils_heavycomments=0
+hi CursorLine gui=underline cterm=underline ctermfg=None guifg=None guibg=None
+hi Search guibg=peru guifg=wheat
+"set background=light
+"colorscheme envy
+
+" EDITING CONFIG
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
 filetype plugin indent on
+set autoindent expandtab tabstop=4 shiftwidth=4 smarttab
+let g:crystal_auto_format = 1
+let g:bookmark_sign = '😜'
+
+
+" KEYBOARD SHORTCUTS
 map <leader>ff <cmd>Telescope find_files<cr>
 map <leader>fg <cmd>Telescope live_grep<cr>
 map <leader>fb <cmd>Telescope buffers<cr>
@@ -81,50 +134,61 @@ inoremap <nowait> <esc> <esc>
 inoremap jk <esc>
 au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>d :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php vnoremap <buffer> <leader>p :call PhpDocRange()<CR>
+nnoremap <silent><leader>pd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
+
+
+" PHP CONFIG
 let g:syntastic_php_checkers = ['php']
 let g:tagbar_phpctags_memory_limit = '512M'
-let g:lightline = {'active': {'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]}}
-set autoindent expandtab tabstop=4 shiftwidth=4 smarttab
-set laststatus=2
-set backupdir=~/.vim/backup_files//
-set directory=~/.vim/swap_files//
-set undodir=~/.vim/undo_files//
-set cc=80
-fun! ToggleCC()
-    if &cc == ''
-        set cc=80
-    else
-        set cc=
-    endif
-endfun
-let g:venter_width = &columns/8
 let g:eighties_enabled = 1
 let g:eighties_minimum_width = 100
-nnoremap <leader>cc :call ToggleCC()<CR>
 let g:php_cs_fixer_rules = "@PSR2"
 let g:php_cs_fixer_php_path = "php8"
 let g:phpfmt_standard = 'PSR2'
-nnoremap <silent><leader>pd :call PhpCsFixerFixDirectory()<CR>
-nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
-let g:crystal_auto_format = 1
-let g:bookmark_sign = '😜'
 let b:ale_linters = ['php', 'phpcs']
 let g:ale_php_phpcs_executable='phpcs'
 let g:ale_php_php_cs_fixer_executable='php-cs-fixer'
 let g:ale_fixers = {'php': ['php-cs-fixer']}
-let g:pdv_cfg_Author = 'David Satime Wallin <david.wallin@klaravik.se>'
-let g:pdv_cfg_ClassTags = ["author"]
-hi CursorLine gui=underline cterm=underline ctermfg=None guifg=None guibg=None
+
+
+" NEEDED DIRECTORIES
+set backupdir=~/.vim/backup_files//
+set directory=~/.vim/swap_files//
+set undodir=~/.vim/undo_files//
+
+
+" STATUS LINE
+set laststatus=2
 let g:lightline = {
             \ 'active': {
-            \   'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype', 'charvaluehex']],
-            \   'left': [[  'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ], [ 'coc_status'  ]]
+            \   'right': [
+                \   ['lineinfo'],
+                \   ['percent'],
+                \   [
+                \       'fileformat',
+                \       'fileencoding',
+                \       'filetype',
+                \       'charvaluehex'
+                \   ]
+            \   ],
+            \   'left': [
+                \   [
+                    \   'coc_info',
+                    \   'coc_hints',
+                    \   'coc_errors',
+                    \   'coc_warnings',
+                    \   'coc_ok'
+                \   ],
+                \   [ 'coc_status']
+            \   ]
             \ },
             \ 'component_function': {'percent': 'ScrollStatus'},
             \ 'colorscheme': 'one',
             \ }
-hi Search guibg=peru guifg=wheat
+
+
+" EXTRA CONFIGS THAT ARE LOCAL ONLY
 let $SECFILE = $HOME . "/.secvimrc"
 if filereadable($SECFILE)
     source $SECFILE
