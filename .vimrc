@@ -70,6 +70,14 @@ Plug 'kana/vim-operator-user'
 Plug 'Shougo/vimproc.vim'
 Plug 'robertmeta/nofrils'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'WolfgangMehner/bash-support'
+Plug 'easymotion/vim-easymotion'
+Plug 'justincampbell/vim-eighties'
+if has('nvim') || has('patch-8.0.902')
+    Plug 'mhinz/vim-signify'
+else
+    Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 call plug#end()
 let mapleader = ","
 if !has('gui_running')
@@ -112,7 +120,8 @@ map <leader>fg <cmd>Telescope live_grep<cr>
 map <leader>fb <cmd>Telescope buffers<cr>
 map <leader>fh <cmd>Telescope help_tags<cr>
 map <leader>yw yiw
-map <leader>v viw
+map <leader>y viw
+map <leader>v :VenterToggle<CR>
 map <leader>g :Goyo<CR>
 map <leader>id gg=G<CR>
 map <leader>q :NERDTreeToggle<CR>
@@ -120,6 +129,7 @@ map <leader>r :source $HOME/.vimrc<CR>
 nmap <leader>x :exec '!'.getline('.')<CR>
 map <leader>c :vert bo new $HOME/.cmds<CR>
 nmap <leader>w :TagbarToggle<CR>
+map <Leader> <Plug>(easymotion-prefix)
 inoremap <nowait> <esc> <esc>
 inoremap jk <esc>
 au BufRead,BufNewFile *.php inoremap <buffer> <leader>d :call PhpDoc()<CR>
@@ -131,6 +141,8 @@ nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 " PHP CONFIG
 let g:syntastic_php_checkers = ['php']
 let g:tagbar_phpctags_memory_limit = '512M'
+let g:eighties_enabled = 1
+let g:eighties_minimum_width = 100
 let g:php_cs_fixer_rules = "@PSR2"
 let g:php_cs_fixer_php_path = "php8"
 let g:phpfmt_standard = 'PSR2'
@@ -181,3 +193,6 @@ let $SECFILE = $HOME . "/.secvimrc"
 if filereadable($SECFILE)
     source $SECFILE
 endif
+let g:minimap_width = 10
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
