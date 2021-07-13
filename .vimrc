@@ -142,7 +142,7 @@ nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
 let g:syntastic_php_checkers = ['php']
 let g:tagbar_phpctags_memory_limit = '512M'
 let g:eighties_enabled = 1
-let g:eighties_minimum_width = 100
+let g:eighties_minimum_width = 80
 let g:php_cs_fixer_rules = "@PSR2"
 let g:php_cs_fixer_php_path = "php8"
 let g:phpfmt_standard = 'PSR2'
