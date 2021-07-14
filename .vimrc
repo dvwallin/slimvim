@@ -68,11 +68,11 @@ Plug 'sumpygump/php-documentor-vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'kana/vim-operator-user'
 Plug 'Shougo/vimproc.vim'
-Plug 'robertmeta/nofrils'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'WolfgangMehner/bash-support'
 Plug 'easymotion/vim-easymotion'
 Plug 'justincampbell/vim-eighties'
+Plug 'dvwallin/tiny-nofrils'
 if has('nvim') || has('patch-8.0.902')
     Plug 'mhinz/vim-signify'
 else
@@ -95,7 +95,7 @@ set mouse=a
 syntax on
 set cc=80
 set termguicolors
-colo nofrils-acme
+colo tiny-nofrils
 let g:nofrils_heavylinenumbers=0
 let g:nofrils_strbackgrounds=0
 let g:nofrils_heavycomments=0
