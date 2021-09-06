@@ -18,7 +18,7 @@
 " FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 " IN THE SOFTWARE.
 
-" ----------------------------------------------------------------------------
+" ---------------------------------------------------------------------------
 
 set nocompatible
 call plug#begin('~/.vim/plugged')
@@ -65,6 +65,7 @@ Plug 'ollykel/v-vim'
 Plug 'pechorin/any-jump.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/tagbar'
+Plug 'quintik/Snip'
 Plug 'rhysd/vim-clang-format'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
@@ -75,6 +76,7 @@ Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-crystal/vim-crystal'
 Plug 'vim-php/tagbar-phpctags.vim'
+Plug 'mcchrish/zenbones.nvim'
 if has('nvim') || has('patch-8.0.902')
     Plug 'mhinz/vim-signify'
 else
@@ -97,14 +99,14 @@ set mouse=a
 syntax on
 set cc=80
 set termguicolors
-colo tiny-nofrils
+"colo tiny-nofrils
+colorscheme zenbones
 let g:nofrils_heavylinenumbers=0
 let g:nofrils_strbackgrounds=0
 let g:nofrils_heavycomments=0
 hi CursorLine gui=underline cterm=underline ctermfg=None guifg=None guibg=None
 hi Search guibg=peru guifg=wheat
-"set background=light
-"colorscheme envy
+set background=light
 
 " EDITING CONFIG
 let g:better_whitespace_enabled=1
@@ -195,3 +197,5 @@ let $SECFILE = $HOME . "/.secvimrc"
 if filereadable($SECFILE)
     source $SECFILE
 endif
+
+
