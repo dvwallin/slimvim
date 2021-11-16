@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
 " LIST OF PLUGINS
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'Shougo/vimproc.vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'WolfgangMehner/bash-support'
 Plug 'WolfgangMehner/c-support'
 Plug 'airblade/vim-gitgutter'
@@ -99,14 +100,11 @@ set mouse=a
 syntax on
 set cc=80
 set termguicolors
-"colo tiny-nofrils
-colorscheme zenbones
-let g:nofrils_heavylinenumbers=0
-let g:nofrils_strbackgrounds=0
-let g:nofrils_heavycomments=0
 hi CursorLine gui=underline cterm=underline ctermfg=None guifg=None guibg=None
 hi Search guibg=peru guifg=wheat
+set t_Co=256
 set background=light
+colorscheme PaperColor
 
 " EDITING CONFIG
 let g:better_whitespace_enabled=1
